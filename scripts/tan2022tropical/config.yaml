@@ -1,0 +1,40 @@
+seed:
+  2333
+data:
+  data_dir: "data/cache"
+  h: 256
+  w: 256
+  seq_len: 1
+  interval: 1
+  num_workers: 1
+  val_ratio: 0.2
+  persistent_workers: True
+model:
+  h: 256
+  w: 256
+  in_channels: 2
+  out_channels: 1
+  seq_len: 1
+optim:
+  noise_var: 8.0
+  # gpu
+  device: "cuda:0"
+  accelerator: "gpu"
+  precision: "32"
+  batch_size: 2
+  float32_matmul_precision: "medium"
+  # optimizer
+  method: "adam"
+  lr: 1e-4
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+  max_epochs: 100
+  accumulate: 1
+  # scheduler
+  warmup_percentage: 0.1
+  lr_scheduler_mode: "cosine"
+  min_lr_ratio: 1e-3
+  warmup_min_lr_ratio: 0.1
+  # early stopping
+  monitor: "val/loss"
+  patience: 20

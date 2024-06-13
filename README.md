@@ -1,0 +1,1 @@
+<img src="imgs/top_structure.svg">
